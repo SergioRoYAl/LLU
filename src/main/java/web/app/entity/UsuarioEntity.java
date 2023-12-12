@@ -35,7 +35,7 @@ public class UsuarioEntity {
     @NotNull
     @NotBlank
     @Size(min=3, max=32)
-    private String nombre_usuario;
+    private String username;
 
     @NotNull
     @NotBlank
@@ -66,7 +66,7 @@ public class UsuarioEntity {
 
     public UsuarioEntity(Long id, @Size(min = 3, max = 64) String nombre, @Size(min = 3, max = 128) String apellidos,
             LocalDate fecha_nacimiento, @Size(min = 3, max = 128) String direccion,
-            @NotNull @NotBlank @Size(min = 3, max = 32) String nombre_usuario,
+            @NotNull @NotBlank @Size(min = 3, max = 32) String username,
             @NotNull @NotBlank @Size(min = 64, max = 64) String password, @NotNull @NotBlank Boolean role,
             @NotNull @NotBlank String email) {
         this.id = id;
@@ -74,7 +74,7 @@ public class UsuarioEntity {
         this.apellidos = apellidos;
         this.fecha_nacimiento = fecha_nacimiento;
         this.direccion = direccion;
-        this.nombre_usuario = nombre_usuario;
+        this.username = username;
         this.password = password;
         this.role = role;
         this.email = email;
@@ -84,14 +84,14 @@ public class UsuarioEntity {
 
     public UsuarioEntity(@Size(min = 3, max = 64) String nombre, @Size(min = 3, max = 128) String apellidos,
             LocalDate fecha_nacimiento, @Size(min = 3, max = 128) String direccion,
-            @NotNull @NotBlank @Size(min = 3, max = 32) String nombre_usuario,
+            @NotNull @NotBlank @Size(min = 3, max = 32) String username,
             @NotNull @NotBlank @Size(min = 64, max = 64) String password, @NotNull @NotBlank Boolean role,
             @NotNull @NotBlank String email) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fecha_nacimiento = fecha_nacimiento;
         this.direccion = direccion;
-        this.nombre_usuario = nombre_usuario;
+        this.username = username;
         this.password = password;
         this.role = role;
         this.email = email;
@@ -99,10 +99,10 @@ public class UsuarioEntity {
 
 
 
-    public UsuarioEntity(@NotNull @NotBlank @Size(min = 3, max = 32) String nombre_usuario,
+    public UsuarioEntity(@NotNull @NotBlank @Size(min = 3, max = 32) String username,
             @NotNull @NotBlank @Size(min = 64, max = 64) String password, @NotNull @NotBlank Boolean role,
             @NotNull @NotBlank String email) {
-        this.nombre_usuario = nombre_usuario;
+        this.username = username;
         this.password = password;
         this.role = role;
         this.email = email;
@@ -170,14 +170,14 @@ public class UsuarioEntity {
 
 
 
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getUsername() {
+        return username;
     }
 
 
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 
