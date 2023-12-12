@@ -238,6 +238,18 @@ public class UsuarioEntity {
 
     public void setRespuestas(List<RespuestaEntity> respuestas) {
         this.respuestas = respuestas;
+    }
+
+
+
+    public List<DocumentoEntity> getDocumentos() {
+        return documentos;
+    }
+
+
+
+    public void setDocumentos(List<DocumentoEntity> documentos) {
+        this.documentos = documentos;
     }  
 
     
