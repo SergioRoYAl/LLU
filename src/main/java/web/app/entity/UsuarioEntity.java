@@ -42,14 +42,13 @@ public class UsuarioEntity {
     @Size(min=64, max=64)
     private String password;
 
-    @NotNull
-    @NotBlank
+    
     private Boolean role;
 
     @NotNull
     @NotBlank
     private String email;
-
+    
     @OneToMany(mappedBy = "usuario")
     private List<NoticiaEntity> noticias;
 
@@ -250,11 +249,7 @@ public class UsuarioEntity {
 
     public void setDocumentos(List<DocumentoEntity> documentos) {
         this.documentos = documentos;
-    }  
-
-    
-
-    
+    }   
     
     
 }

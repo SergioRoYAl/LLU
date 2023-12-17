@@ -5,6 +5,7 @@ import java.time.Month;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -60,23 +61,18 @@ public class UsuarioService {
         return oUsuarioRepository.save(oUsuarioEntity).getId();
     }
     
-    public UsuarioEntity update(UsuarioEntity oUsuarioEntityToSet){
+    public Long update(UsuarioEntity oUsuarioEntityToSet){
         UsuarioEntity oUsuarioEntityFromDataBase = this.get(oUsuarioEntityToSet.getId());
         oSesionService.onlyAdminsOrUsersWithIisOwnData(oUsuarioEntityFromDataBase.getId());
         if(oSesionService.isUser()){
             oUsuarioEntityToSet.setRole(oUsuarioEntityFromDataBase.getRole());
             oUsuarioEntityToSet.setPassword("f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3");
-            return oUsuarioRepository.save(oUsuarioEntityToSet);
+            return oUsuarioRepository.save(oUsuarioEntityToSet).getId();
         } else if(oSesionService.isAdmin()){
             oUsuarioEntityToSet.setPassword("f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3");
-            return oUsuarioRepository.save(oUsuarioEntityToSet);
+            return oUsuarioRepository.save(oUsuarioEntityToSet).getId();
         } else {
-            oUsuarioEntityToSet.setNombre("Nombre no modificado");
-            oUsuarioEntityToSet.setApellidos("Apellidos no modificados");
-            oUsuarioEntityToSet.setFecha_nacimiento(LocalDate.of(1, Month.MAY, 1337)); 
-            oUsuarioEntityToSet.setRole(oUsuarioEntityFromDataBase.getRole());
-            oUsuarioEntityToSet.setDireccion("Calle interrogante");
-            return oUsuarioEntityToSet;
+            return oUsuarioEntityToSet.getId();
         }
     }
 
@@ -84,5 +80,11 @@ public class UsuarioService {
         oSesionService.onlyAdmins();
         oUsuarioRepository.deleteById(id);
         return id;
+    }
+
+    public UsuarioEntity getOneRandom(){
+        oSesionService.onlyAdmins();
+        Pageable oPageable = PageRequest.of((int) (Math.random() * oUsuarioRepository.count()), 1);
+        return oUsuarioRepository.findAll(oPageable).getContent().get(0);
     }
 }

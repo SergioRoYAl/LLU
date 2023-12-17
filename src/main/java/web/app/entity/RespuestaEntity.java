@@ -25,11 +25,11 @@ public class RespuestaEntity {
     private String respuesta;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;
 
     @ManyToOne
-    @JoinColumn(name = "noticia_id")
+    @JoinColumn(name = "id_noticia")
     private NoticiaEntity noticia;
 
 

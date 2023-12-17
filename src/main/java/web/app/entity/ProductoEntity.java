@@ -42,8 +42,9 @@ public class ProductoEntity {
     @Size(min = 3, max = 64)
     private String color;
 
+    private Boolean visible = true;
+
     @NotNull
-    @NotBlank
     @NumberFormat(style = NumberFormat.Style.NUMBER)
     private Double precio; //Precio en euros
     
@@ -53,7 +54,7 @@ public class ProductoEntity {
     public ProductoEntity(Long id, @NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
             @Size(min = 3, max = 1024) String descripcion, @Size(min = 3, max = 64) String tamanyo,
             @Size(min = 3, max = 128) String materiales, LocalDate fecha_creacion,
-            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio) {
+            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio, Boolean visible) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -62,12 +63,13 @@ public class ProductoEntity {
         this.fecha_creacion = fecha_creacion;
         this.color = color;
         this.precio = precio;
+        this.visible = visible;
     }
 
     public ProductoEntity(@NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
             @Size(min = 3, max = 1024) String descripcion, @Size(min = 3, max = 64) String tamanyo,
             @Size(min = 3, max = 128) String materiales, LocalDate fecha_creacion,
-            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio) {
+            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio, Boolean visible) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tamanyo = tamanyo;
@@ -75,33 +77,37 @@ public class ProductoEntity {
         this.fecha_creacion = fecha_creacion;
         this.color = color;
         this.precio = precio;
+        this.visible = visible;
     }
 
     public ProductoEntity(@NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
             @Size(min = 3, max = 1024) String descripcion, @Size(min = 3, max = 64) String tamanyo,
             @Size(min = 3, max = 128) String materiales, @Size(min = 3, max = 64) String color,
-            @NotNull @NotBlank Double precio) {
+            @NotNull @NotBlank Double precio, Boolean visible) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tamanyo = tamanyo;
         this.materiales = materiales;
         this.color = color;
         this.precio = precio;
+        this.visible = visible;
     }
 
     public ProductoEntity(Long id, @NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
-            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio) {
+            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio, Boolean visible) {
         this.id = id;
         this.nombre = nombre;
         this.color = color;
         this.precio = precio;
+        this.visible = visible;
     }
 
     public ProductoEntity(@NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
-            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio) {
+            @Size(min = 3, max = 64) String color, @NotNull @NotBlank Double precio, Boolean visible) {
         this.nombre = nombre;
         this.color = color;
         this.precio = precio;
+        this.visible = visible;
     }
 
     public Long getId() {
@@ -166,6 +172,14 @@ public class ProductoEntity {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public Boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
     }
 
     

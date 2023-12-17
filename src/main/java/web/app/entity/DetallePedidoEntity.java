@@ -21,11 +21,11 @@ public class DetallePedidoEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "documento_id")
+    @JoinColumn(name = "id_documento")
     private DocumentoEntity documento;
 
     @ManyToOne
-    @JoinColumn(name = "producto_id")
+    @JoinColumn(name = "id_producto")
     private ProductoEntity producto;
 
     @NotNull

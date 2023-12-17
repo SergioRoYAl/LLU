@@ -21,7 +21,7 @@ public class DocumentoEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;
     
     @NotNull

@@ -20,9 +20,9 @@ public class SesionService {
     HttpServletRequest oHttpServletRequest;
 
     public String login(UsuarioBean oUsuarioBean){
-        oUsuarioRepository.findByUsernameAndPassword(oUsuarioBean.getNombre_usuario(), oUsuarioBean.getPassword())
+        oUsuarioRepository.findByUsernameAndPassword(oUsuarioBean.getUsername(), oUsuarioBean.getPassword())
             .orElseThrow(() -> new RuntimeException("Usuario o contraseña incorrectos"));
-        return JWTHelper.generateJWT(oUsuarioBean.getNombre_usuario());
+        return JWTHelper.generateJWT(oUsuarioBean.getUsername());
     }
 
     public String getSessionUsername(){

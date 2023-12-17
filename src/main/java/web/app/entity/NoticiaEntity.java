@@ -33,7 +33,7 @@ public class NoticiaEntity {
     private String descripción;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;
 
     @OneToMany(mappedBy = "noticia")

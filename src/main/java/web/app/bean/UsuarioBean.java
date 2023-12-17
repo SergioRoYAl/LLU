@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UsuarioBean {
     
-    private String nombre_usuario;
+    private String username;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getUsername() {
+        return username;
     }
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getPassword() {
         return password;
