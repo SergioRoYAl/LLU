@@ -23,6 +23,11 @@ public class UsuarioApi {
     @Autowired
     UsuarioService oUsuarioService;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioEntity> get(@PathVariable("id") Long id){
+        return ResponseEntity.ok(oUsuarioService.get(id));
+    }
+    
     //GET MAPPING CON EL USERNAME
     //PARA OBTENER LA INFORMACIÓN DE ALGÚN USUARIO
     @GetMapping("/{username}")
