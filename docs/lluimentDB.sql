@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: database:3306
--- Tiempo de generación: 12-12-2023 a las 22:18:34
--- Versión del servidor: 5.7.44
--- Versión de PHP: 8.2.12
+-- Host: database:3306
+-- Generation Time: Dec 18, 2023 at 08:51 AM
+-- Server version: 8.2.0
+-- PHP Version: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,93 +18,97 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `lluimentDB`
+-- Database: `lluimentDB`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detallepedido`
+-- Table structure for table `detallepedido`
 --
 
 CREATE TABLE `detallepedido` (
-  `id` bigint(20) NOT NULL,
-  `id_documento` bigint(20) NOT NULL,
-  `id_producto` bigint(20) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `precio_unidad` double NOT NULL,
-  `precio` double NOT NULL,
-  `documento_id` bigint(20) DEFAULT NULL,
-  `producto_id` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` bigint NOT NULL,
+  `id_documento` bigint NOT NULL,
+  `id_producto` bigint NOT NULL,
+  `cantidad` int NOT NULL,
+  `precio` double NOT NULL
+);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `documento`
+-- Table structure for table `documento`
 --
 
 CREATE TABLE `documento` (
-  `id` bigint(20) NOT NULL,
-  `id_usuario` bigint(20) NOT NULL,
-  `fecha_pedido` date NOT NULL,
-  `usuario_id` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` bigint NOT NULL,
+  `id_usuario` bigint NOT NULL,
+  `fecha_pedido` date NOT NULL
+);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `noticia`
+-- Table structure for table `noticia`
 --
 
 CREATE TABLE `noticia` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint NOT NULL,
   `titulo` varchar(256) NOT NULL,
   `descripción` varchar(4192) NOT NULL,
-  `id_user` bigint(20) NOT NULL,
-  `usuario_id` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_user` bigint NOT NULL
+);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint NOT NULL,
   `nombre` varchar(128) NOT NULL,
   `descripcion` varchar(1024) DEFAULT NULL,
   `tamanyo` varchar(64) DEFAULT NULL,
   `materiales` varchar(128) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `color` varchar(64) NOT NULL,
-  `precio` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `precio` double NOT NULL,
+  `visible` tinyint NOT NULL
+);
+
+--
+-- Dumping data for table `producto`
+--
+
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `tamanyo`, `materiales`, `fecha_creacion`, `color`, `precio`, `visible`) VALUES
+(1, 'Anillo Oro', 'Anillo de oro perfeccionado a la perfeccion', '20mm', 'Oro 24k', '2023-12-04', 'Oro', 30.71, 1),
+(2, 'Anillo Oro con Diamantes', 'Anillo de oro con diamantes incrustados', '18mm', 'Oro 24k\r\nDiamantes de Perlines', '2023-12-04', 'Oro\r\nDiamante', 201.82, 0),
+(3, 'Anillo con Amatista', NULL, NULL, NULL, NULL, 'Oro y Morado', 991.21, 1),
+(4, 'Collar corazón', NULL, NULL, NULL, NULL, 'Plata\r\nRubí', 31441.123, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `respuesta`
+-- Table structure for table `respuesta`
 --
 
 CREATE TABLE `respuesta` (
-  `id` bigint(20) NOT NULL,
-  `id_usuario` bigint(20) NOT NULL,
+  `id` bigint NOT NULL,
+  `id_usuario` bigint NOT NULL,
   `respuesta` varchar(512) NOT NULL,
-  `id_noticia` bigint(20) NOT NULL,
-  `noticia_id` bigint(20) DEFAULT NULL,
-  `usuario_id` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_noticia` bigint NOT NULL
+);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint NOT NULL,
   `nombre` varchar(64) DEFAULT NULL,
   `apellidos` varchar(128) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
@@ -113,140 +117,129 @@ CREATE TABLE `usuario` (
   `password` varchar(64) NOT NULL,
   `role` bit(1) NOT NULL,
   `email` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `fecha_nacimiento`, `direccion`, `username`, `password`, `role`, `email`) VALUES
-(1, 'Admin', 'Istrador', '2001-12-12', 'Bazar Alta Calidad', 'Admin', 'f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3', b'0', 'admin@lluiment.com');
+(1, 'Admin', 'Istrador', '2001-12-12', 'Bazar Alta Calidad', 'Admin', 'f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3', b'0', 'admin@lluiment.com'),
+(2, 'Sergio', 'Romero Alarcón', '1998-12-12', 'C/9 D\'Octubre', 'Xekos', 'f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3', b'0', 'sergioromeroalarcon2b@gmail.com');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `detallepedido`
+-- Indexes for table `detallepedido`
 --
 ALTER TABLE `detallepedido`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_producto` (`id_producto`),
-  ADD KEY `id_documento` (`id_documento`) USING BTREE,
-  ADD KEY `FKb5c141h369xaucaas61q4p80k` (`documento_id`),
-  ADD KEY `FK9ysac71lk6fm2g6x0xw1cea4r` (`producto_id`);
+  ADD KEY `id_documento` (`id_documento`) USING BTREE;
 
 --
--- Indices de la tabla `documento`
+-- Indexes for table `documento`
 --
 ALTER TABLE `documento`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `FK12wwnlkdoe79h38nvn5huqo0b` (`usuario_id`);
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `noticia`
+-- Indexes for table `noticia`
 --
 ALTER TABLE `noticia`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user` (`id_user`),
-  ADD KEY `FK51s0hrvyltinu4gignfdoen34` (`usuario_id`);
+  ADD KEY `id_user` (`id_user`);
 
 --
--- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `respuesta`
+-- Indexes for table `respuesta`
 --
 ALTER TABLE `respuesta`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_noticia` (`id_noticia`),
-  ADD KEY `FKokeh4er0q9yscidy2wkwubn8h` (`noticia_id`),
-  ADD KEY `FKctn14ljjyruo647pixtk6c9e7` (`usuario_id`);
+  ADD KEY `id_noticia` (`id_noticia`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `detallepedido`
+-- AUTO_INCREMENT for table `detallepedido`
 --
 ALTER TABLE `detallepedido`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `documento`
+-- AUTO_INCREMENT for table `documento`
 --
 ALTER TABLE `documento`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `noticia`
+-- AUTO_INCREMENT for table `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `respuesta`
+-- AUTO_INCREMENT for table `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `detallepedido`
+-- Constraints for table `detallepedido`
 --
 ALTER TABLE `detallepedido`
-  ADD CONSTRAINT `FK9ysac71lk6fm2g6x0xw1cea4r` FOREIGN KEY (`producto_id`) REFERENCES `producto` (`id`),
-  ADD CONSTRAINT `FKb5c141h369xaucaas61q4p80k` FOREIGN KEY (`documento_id`) REFERENCES `documento` (`id`),
   ADD CONSTRAINT `detallepedido_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`),
   ADD CONSTRAINT `detallepedido_ibfk_2` FOREIGN KEY (`id_documento`) REFERENCES `documento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `documento`
+-- Constraints for table `documento`
 --
 ALTER TABLE `documento`
-  ADD CONSTRAINT `FK12wwnlkdoe79h38nvn5huqo0b` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `documento_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
 --
--- Filtros para la tabla `noticia`
+-- Constraints for table `noticia`
 --
 ALTER TABLE `noticia`
-  ADD CONSTRAINT `FK51s0hrvyltinu4gignfdoen34` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `noticia_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `usuario` (`id`);
 
 --
--- Filtros para la tabla `respuesta`
+-- Constraints for table `respuesta`
 --
 ALTER TABLE `respuesta`
-  ADD CONSTRAINT `FKctn14ljjyruo647pixtk6c9e7` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
-  ADD CONSTRAINT `FKokeh4er0q9yscidy2wkwubn8h` FOREIGN KEY (`noticia_id`) REFERENCES `noticia` (`id`),
   ADD CONSTRAINT `respuesta_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `respuesta_ibfk_2` FOREIGN KEY (`id_noticia`) REFERENCES `noticia` (`id`);
 COMMIT;
