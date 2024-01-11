@@ -30,7 +30,7 @@ public class UsuarioApi {
     
     //GET MAPPING CON EL USERNAME
     //PARA OBTENER LA INFORMACIÓN DE ALGÚN USUARIO
-    @GetMapping("/{username}")
+    @GetMapping("luzDe//{username}")
     public ResponseEntity<UsuarioEntity> get(@PathVariable("username") String username){
         return ResponseEntity.ok(oUsuarioService.getByUsername(username));
     }
