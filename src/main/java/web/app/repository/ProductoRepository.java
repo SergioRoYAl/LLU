@@ -16,4 +16,6 @@ public interface ProductoRepository extends JpaRepository<ProductoEntity, Long>{
      @Query(value = "SELECT * FROM producto WHERE visible = 1 ORDER BY id ASC", nativeQuery = true)
 Page<ProductoEntity> findAllVisible(Pageable pageable);
 
+@Query(value = "SELECT * FROM producto WHERE length(?1) >= 3 AND (nombre LIKE %?1%)", nativeQuery = true)
+     Page<ProductoEntity> findByNameContainingIgnoreCase(String searchText, String filter1, Pageable pageable);
 }

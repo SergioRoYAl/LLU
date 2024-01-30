@@ -42,9 +42,17 @@ public class UsuarioService {
         }
     }
 
-    public Page<UsuarioEntity> getPage(Pageable oPageable){
+    public Page<UsuarioEntity> getPage(Pageable oPageable, String filter){
         oSesionService.onlyAdmins();
-        return oUsuarioRepository.findAll(oPageable);
+        Page<UsuarioEntity> page;
+
+        if (filter == null || filter.isEmpty() || filter.trim().isEmpty()) {
+            page = oUsuarioRepository.findAll(oPageable);
+        } else {
+            page = oUsuarioRepository.findByUserByNameOrSurnameOrLastnameContainingIgnoreCase(
+                    filter, filter, filter, filter, oPageable);
+        }
+        return page;
     }
 
     public Page<UsuarioEntity> getPageByRespuestasNumeroDescendiente(Pageable oPageable){
@@ -61,7 +69,7 @@ public class UsuarioService {
     
     public Long update(UsuarioEntity oUsuarioEntityToSet){
         UsuarioEntity oUsuarioEntityFromDataBase = this.get(oUsuarioEntityToSet.getId());
-        oSesionService.onlyAdminsOrUsersWithIisOwnData(oUsuarioEntityFromDataBase.getId());
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oUsuarioEntityFromDataBase.getId());
         if(oSesionService.isUser()){
             oUsuarioEntityToSet.setRole(oUsuarioEntityFromDataBase.getRole());
             oUsuarioEntityToSet.setPassword("f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3");

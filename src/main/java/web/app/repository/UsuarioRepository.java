@@ -18,4 +18,7 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
     @Query(value = "SELECT u.*,count(r.id) FROM usuario u, respuesta r WHERE u.id = r.id_usuario GROUP BY u.id ORDER BY COUNT(u.id) desc", nativeQuery = true)
     Page<UsuarioEntity> findUsersByRepliesNumberDescFilter(Pageable pageable);
 
+    @Query(value = "SELECT * FROM usuario WHERE length(?1) >= 3 AND (nombre LIKE %?1% OR apellidos LIKE %?1% OR username LIKE %?1% OR email LIKE %?1%)", nativeQuery = true)
+    Page<UsuarioEntity> findByUserByNameOrSurnameOrLastnameContainingIgnoreCase(String searchText,
+            String filter, String filter2, String filter3, Pageable pageable);
 }

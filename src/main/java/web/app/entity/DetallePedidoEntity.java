@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -29,21 +30,17 @@ public class DetallePedidoEntity {
     private ProductoEntity producto;
 
     @NotNull
-    @NotBlank
-    @NumberFormat(style = NumberFormat.Style.NUMBER)
+    @Digits(integer=10, fraction=0)
     private Integer cantidad;
 
     @NotNull
-    @NotBlank
-    @NumberFormat(style = NumberFormat.Style.NUMBER)
+    @Digits(integer=10, fraction=0)
     private Double precio; //Precio en euros
 
     public DetallePedidoEntity() {
     }
 
-    public DetallePedidoEntity(Long id, DocumentoEntity documento, ProductoEntity producto,
-            @NotNull @NotBlank @NumberFormat(style = NumberFormat.Style.NUMBER) Integer cantidad,
-            @NotNull @NotBlank @NumberFormat(style = NumberFormat.Style.NUMBER) Double precio) {
+    public DetallePedidoEntity(Long id, DocumentoEntity documento, ProductoEntity producto, Integer cantidad, Double precio) {
         this.id = id;
         this.documento = documento;
         this.producto = producto;
@@ -51,9 +48,7 @@ public class DetallePedidoEntity {
         this.precio = precio;
     }
 
-    public DetallePedidoEntity(DocumentoEntity documento, ProductoEntity producto,
-            @NotNull @NotBlank @NumberFormat(style = NumberFormat.Style.NUMBER) Integer cantidad,
-            @NotNull @NotBlank @NumberFormat(style = NumberFormat.Style.NUMBER) Double precio) {
+    public DetallePedidoEntity(DocumentoEntity documento, ProductoEntity producto, Integer cantidad, Double precio) {
         this.documento = documento;
         this.producto = producto;
         this.cantidad = cantidad;

@@ -49,16 +49,19 @@ public class UsuarioEntity {
     @NotBlank
     private String email;
     
-    @OneToMany(mappedBy = "usuario")
-    private List<NoticiaEntity> noticias;
+    @OneToMany(mappedBy = "usuario", fetch = jakarta.persistence.FetchType.LAZY)
+    private List<NoticiaEntity> noticias = null;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<RespuestaEntity> respuestas;
+    @OneToMany(mappedBy = "usuario", fetch = jakarta.persistence.FetchType.LAZY)
+    private List<RespuestaEntity> respuestas = null;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<DocumentoEntity> documentos;
+    @OneToMany(mappedBy = "usuario", fetch = jakarta.persistence.FetchType.LAZY)
+    private List<DocumentoEntity> documentos = null;
 
     public UsuarioEntity() {
+        noticias = new java.util.ArrayList<>();
+        respuestas = new java.util.ArrayList<>();
+        documentos = new java.util.ArrayList<>();
     }
 
     
@@ -96,8 +99,6 @@ public class UsuarioEntity {
         this.email = email;
     }
 
-
-
     public UsuarioEntity(@NotNull @NotBlank @Size(min = 3, max = 32) String username,
             @NotNull @NotBlank @Size(min = 64, max = 64) String password, @NotNull @NotBlank Boolean role,
             @NotNull @NotBlank String email) {
@@ -106,8 +107,6 @@ public class UsuarioEntity {
         this.role = role;
         this.email = email;
     }
-
-
 
     public Long getId() {
         return id;
@@ -215,41 +214,16 @@ public class UsuarioEntity {
         this.email = email;
     }
 
-
-
-    public List<NoticiaEntity> getNoticias() {
-        return noticias;
+    public int getNoticias(){
+        return noticias.size();
     }
 
-
-
-    public void setNoticias(List<NoticiaEntity> noticias) {
-        this.noticias = noticias;
+    public int getRespuestas(){
+        return respuestas.size();
     }
 
-
-
-    public List<RespuestaEntity> getRespuestas() {
-        return respuestas;
+    public int getDocumentos(){
+        return documentos.size();
     }
 
-
-
-    public void setRespuestas(List<RespuestaEntity> respuestas) {
-        this.respuestas = respuestas;
-    }
-
-
-
-    public List<DocumentoEntity> getDocumentos() {
-        return documentos;
-    }
-
-
-
-    public void setDocumentos(List<DocumentoEntity> documentos) {
-        this.documentos = documentos;
-    }   
-    
-    
 }

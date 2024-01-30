@@ -1,6 +1,8 @@
 package web.app.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import web.app.entity.UsuarioEntity;
@@ -17,7 +20,7 @@ import web.app.service.UsuarioService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/luzDe")
+@RequestMapping("/luz")
 public class UsuarioApi {
     
     @Autowired
@@ -30,9 +33,16 @@ public class UsuarioApi {
     
     //GET MAPPING CON EL USERNAME
     //PARA OBTENER LA INFORMACIÓN DE ALGÚN USUARIO
-    @GetMapping("luzDe//{username}")
+    @GetMapping("/de/{username}")
     public ResponseEntity<UsuarioEntity> get(@PathVariable("username") String username){
         return ResponseEntity.ok(oUsuarioService.getByUsername(username));
+    }
+
+    @GetMapping("")
+    public ResponseEntity<Page<UsuarioEntity>> getPage(
+            Pageable oPageable,
+            @RequestParam(name = "filter", required = false) String strFilter) {
+        return ResponseEntity.ok(oUsuarioService.getPage(oPageable, strFilter));
     }
 
     //POST MAPPING PARA CREAR UN USUARIO

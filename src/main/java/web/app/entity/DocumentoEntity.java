@@ -2,6 +2,7 @@ package web.app.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,16 +26,20 @@ public class DocumentoEntity {
     private UsuarioEntity usuario;
     
     @NotNull
-    @NotBlank
+    @Column(name = "fecha_pedido")
     private LocalDate fecha_pedido;
 
-    public DocumentoEntity(Long id, UsuarioEntity usuario, @NotNull @NotBlank LocalDate fecha_pedido) {
+    public DocumentoEntity() {
+        
+    }
+
+    public DocumentoEntity(Long id, UsuarioEntity usuario, LocalDate fecha_pedido) {
         this.id = id;
         this.usuario = usuario;
         this.fecha_pedido = fecha_pedido;
     }
 
-    public DocumentoEntity(UsuarioEntity usuario, @NotNull @NotBlank LocalDate fecha_pedido) {
+    public DocumentoEntity(UsuarioEntity usuario, LocalDate fecha_pedido) {
         this.usuario = usuario;
         this.fecha_pedido = fecha_pedido;
     }

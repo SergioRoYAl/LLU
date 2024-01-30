@@ -36,10 +36,11 @@ public class NoticiaEntity {
     @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;
 
-    @OneToMany(mappedBy = "noticia")
+    @OneToMany(mappedBy = "noticia", fetch = jakarta.persistence.FetchType.LAZY)
     private List<RespuestaEntity> respuestas;
 
     public NoticiaEntity() {
+        respuestas = new java.util.ArrayList<>();
     }
 
     public NoticiaEntity(Long id, @NotNull @NotBlank @Size(min = 3, max = 256) String titulo,
@@ -56,6 +57,8 @@ public class NoticiaEntity {
         this.descripción = descripción;
         this.usuario = usuario;
     }
+
+
 
     public Long getId() {
         return id;
@@ -89,12 +92,8 @@ public class NoticiaEntity {
         this.usuario = usuario;
     }
 
-    public List<RespuestaEntity> getRespuestas() {
-        return respuestas;
-    }
-
-    public void setRespuestas(List<RespuestaEntity> respuestas) {
-        this.respuestas = respuestas;
+    public int getRespuestas(){
+        return respuestas.size();
     }
 
     

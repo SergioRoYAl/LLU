@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import web.app.entity.ProductoEntity;
+import web.app.entity.UsuarioEntity;
 import web.app.exception.ResourceNotFoundException;
 import web.app.repository.ProductoRepository;
 
@@ -28,18 +29,22 @@ public class ProductoService {
         
     }
     
-    //DEPENDIENDO DE SI LA VISTA ES DEL ADMIN O DEL USER, HAY QUE CAMBIAR EL MÉTODO EN ANGULAR
-    public ProductoEntity getByNombre(String nombre){
-        if(oSesionService.isSessionActive()){
-            return productoRepository.findByNombre(nombre)
-            .orElseThrow(() -> new ResourceNotFoundException("Producto no encontrado"));
-        } else {
-            throw new ResourceNotFoundException("Producto no encontrado");
-        }
-    }
+    public Page<ProductoEntity> getPageVisible(Pageable oPageable, String filter){
 
-    public Page<ProductoEntity> getPageVisible(Pageable oPageable){
-        return productoRepository.findAllVisible(oPageable);
+
+        oSesionService.onlyAdmins();
+        Page<ProductoEntity> page;
+
+        if (filter == null || filter.isEmpty() || filter.trim().isEmpty()) {
+            page = productoRepository.findAllVisible(oPageable);
+        } else {
+            page = productoRepository.findByNameContainingIgnoreCase(
+                    filter, filter, oPageable);
+        }
+        return page;
+
+
+        
     }
 
     public Page<ProductoEntity> getPageFull(Pageable oPageable){

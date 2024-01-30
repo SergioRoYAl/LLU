@@ -33,14 +33,9 @@ public class ProductoApi {
         return ResponseEntity.ok(oProductoService.get(id));
     }
 
-    @GetMapping("/{nombre}")
-    public ResponseEntity<ProductoEntity> getByNombre(@PathVariable("nombre") String nombre){
-        return ResponseEntity.ok(oProductoService.getByNombre(nombre));
-    }
-
     @GetMapping("/visible")
-    public ResponseEntity<Page<ProductoEntity>> getPage(Pageable oPageable) {
-        return ResponseEntity.ok(oProductoService.getPageVisible(oPageable));
+    public ResponseEntity<Page<ProductoEntity>> getPage(Pageable oPageable, String filter) {
+        return ResponseEntity.ok(oProductoService.getPageVisible(oPageable, filter));
     }
 
     @GetMapping("/full")

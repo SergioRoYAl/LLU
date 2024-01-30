@@ -98,7 +98,7 @@ public class SesionService {
         }
     }
 
-    public void onlyAdminsOrUsersWithIisOwnData(Long id_user) {
+    public void onlyAdminsOrUsersWithItsOwnData(Long id_user) {
         if (this.isSessionActive()) {
             if (!this.isAdmin()) {
                 if (!this.isUser()) {
