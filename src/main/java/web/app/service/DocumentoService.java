@@ -59,6 +59,11 @@ public class DocumentoService {
         return oDocumentoRepository.findAll(oPageable);
     }
 
+    public Page<DocumentoEntity> getPageByUser(Long id, Pageable oPageable){
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
+        return oDocumentoRepository.findPageByUser(id, oPageable);
+    }
+
     public DocumentoEntity isPendiente(Long id){
         oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
         return oDocumentoRepository.isPendiente(id);

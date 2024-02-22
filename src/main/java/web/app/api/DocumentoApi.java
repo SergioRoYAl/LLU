@@ -30,6 +30,11 @@ public class DocumentoApi {
             return ResponseEntity.ok(oDocumentoService.getPage(oPageable));
     }
 
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<Page<DocumentoEntity>> getPageByUser(@PathVariable("id") Long id, Pageable oPageable) {
+            return ResponseEntity.ok(oDocumentoService.getPageByUser(id, oPageable));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<DocumentoEntity> get(@PathVariable("id") Long id){
         return ResponseEntity.ok(oDocumentoService.get(id));

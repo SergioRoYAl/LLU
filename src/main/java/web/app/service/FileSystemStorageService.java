@@ -38,7 +38,8 @@ public class FileSystemStorageService implements StorageService {
             if (file.isEmpty()) {
                 throw new RuntimeException("Failed to store empty file");
             }
-            String filename = file.getOriginalFilename();
+            String filenameWithURL = file.getOriginalFilename();
+            String filename = filenameWithURL.replace("http://localhost:8383/media/", "");
             Path destinationFile = rootLocation.resolve(Paths.get(filename)).normalize().toAbsolutePath();
             try (InputStream inputStream = file.getInputStream()) {
                 Files.copy(inputStream, destinationFile, StandardCopyOption.REPLACE_EXISTING);

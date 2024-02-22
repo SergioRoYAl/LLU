@@ -61,7 +61,7 @@ public class UsuarioService {
     }
 
     public Long create (UsuarioEntity oUsuarioEntity){
-        oSesionService.onlyAdmins();
+        // oSesionService.onlyAdmins();
         oUsuarioEntity.setId(null);
         oUsuarioEntity.setPassword("f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3"); //qlfta
         return oUsuarioRepository.save(oUsuarioEntity).getId();

@@ -39,8 +39,8 @@ public class MediaControllerApi {
     public Map<String, String> uploadFile(@RequestParam("file") MultipartFile multipartFile) {
         String path = storageService.store(multipartFile);
         String host = oHttpServletRequest.getRequestURL().toString().replace(oHttpServletRequest.getRequestURI(), "");
-        String url = ServletUriComponentsBuilder.fromHttpUrl(host).path("/media/").path(path).toUriString();
-
+       // String url = ServletUriComponentsBuilder.fromHttpUrl(host).path("/media/").path(path).toUriString();
+        String url = path;
         return Map.of("url", url);
     }
 
