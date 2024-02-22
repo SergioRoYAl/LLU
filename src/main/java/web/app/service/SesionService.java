@@ -99,7 +99,7 @@ public class SesionService {
     }
 
     public void onlyAdminsOrUsersWithItsOwnData(Long id_user) {
-        if (this.isSessionActive()) {
+            if (this.isSessionActive()) {
             if (!this.isAdmin()) {
                 if (!this.isUser()) {
                     throw new UnauthorizedException("Solo los admins o los usuarios pueden hacer esto");

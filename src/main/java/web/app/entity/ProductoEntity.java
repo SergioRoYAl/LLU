@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -30,7 +31,6 @@ public class ProductoEntity {
     @Size(min = 3, max = 1024)
     private String descripcion;
 
-    @Size(min = 3, max = 64)
     private String tamanyo;
 
     @Size(min = 3, max = 128)
@@ -41,6 +41,12 @@ public class ProductoEntity {
 
     @Size(min = 3, max = 64)
     private String color;
+
+
+    private String foto;
+
+    @JoinColumn(name = "tipo")
+    private String tipo;
 
     private Boolean visible = true;
 
@@ -66,6 +72,35 @@ public class ProductoEntity {
         this.visible = visible;
     }
 
+    
+
+    public ProductoEntity(@NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
+            @Size(min = 3, max = 1024) String descripcion, @Size(min = 3, max = 64) String tamanyo,
+            @Size(min = 3, max = 64) String color, String foto, @NotNull Double precio) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.tamanyo = tamanyo;
+        this.color = color;
+        this.foto = foto;
+        this.precio = precio;
+    }
+
+    public ProductoEntity(@NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
+            @Size(min = 3, max = 1024) String descripcion, @Size(min = 3, max = 64) String tamanyo,
+            @Size(min = 3, max = 128) String materiales, LocalDate fecha_creacion,
+            @Size(min = 3, max = 64) String color, String foto, String tipo, Boolean visible, @NotNull Double precio) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.tamanyo = tamanyo;
+        this.materiales = materiales;
+        this.fecha_creacion = fecha_creacion;
+        this.color = color;
+        this.foto = foto;
+        this.tipo = tipo;
+        this.visible = visible;
+        this.precio = precio;
+    }
+
     public ProductoEntity(@NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
             @Size(min = 3, max = 1024) String descripcion, @Size(min = 3, max = 64) String tamanyo,
             @Size(min = 3, max = 128) String materiales, LocalDate fecha_creacion,
@@ -79,6 +114,7 @@ public class ProductoEntity {
         this.precio = precio;
         this.visible = visible;
     }
+
 
     public ProductoEntity(@NotNull @NotBlank @Size(min = 3, max = 128) String nombre,
             @Size(min = 3, max = 1024) String descripcion, @Size(min = 3, max = 64) String tamanyo,
@@ -108,6 +144,25 @@ public class ProductoEntity {
         this.color = color;
         this.precio = precio;
         this.visible = visible;
+    }
+
+
+    
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Long getId() {

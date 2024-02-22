@@ -31,6 +31,11 @@ public class NoticiaApi {
             return ResponseEntity.ok(oNoticiaService.getPage(oPageable));
     }
 
+    @GetMapping("/visible")
+    public ResponseEntity<Page<NoticiaEntity>> getPage(Pageable oPageable, String filter) {
+        return ResponseEntity.ok(oNoticiaService.getPageVisible(oPageable));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<NoticiaEntity> get(@PathVariable("id") Long id){
         return ResponseEntity.ok(oNoticiaService.get(id));
@@ -47,9 +52,9 @@ public class NoticiaApi {
     }
 
     @PutMapping("")
-    public ResponseEntity<NoticiaEntity> update(@RequestBody NoticiaEntity oNoticiaEntity){
-        return ResponseEntity.ok(oNoticiaService.update(oNoticiaEntity));
-    }
+public ResponseEntity<NoticiaEntity> update(@RequestBody NoticiaEntity oNoticiaEntity){
+    return ResponseEntity.ok(oNoticiaService.update(oNoticiaEntity));
+}
 
 
     

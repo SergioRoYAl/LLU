@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import web.app.entity.NoticiaEntity;
+import web.app.entity.ProductoEntity;
 import web.app.exception.ResourceNotFoundException;
 import web.app.repository.NoticiaRepository;
 
@@ -27,7 +28,16 @@ public class NoticiaService {
     }
 
     public Page<NoticiaEntity> getPage(Pageable oPageable){
+        oSesionService.onlyAdmins();
         return oNoticiaRepository.findAll(oPageable);
+    }
+
+   public Page<NoticiaEntity> getPageVisible(Pageable oPageable){
+
+        return oNoticiaRepository.findAllVisible(oPageable);
+
+
+        
     }
 
     public NoticiaEntity create(NoticiaEntity oNoticiaEntity){

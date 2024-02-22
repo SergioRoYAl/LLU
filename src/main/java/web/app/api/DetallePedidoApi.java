@@ -30,6 +30,7 @@ public class DetallePedidoApi {
             return ResponseEntity.ok(oDetallePedidoService.getPage(oPageable));
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<DetallePedidoEntity> get(@PathVariable("id") Long id){
         return ResponseEntity.ok(oDetallePedidoService.get(id));
@@ -49,6 +50,16 @@ public class DetallePedidoApi {
     @PutMapping("")
     public ResponseEntity<DetallePedidoEntity> update(@RequestBody DetallePedidoEntity oDetallePedidoEntity){
         return ResponseEntity.ok(oDetallePedidoService.update(oDetallePedidoEntity));
+    }
+
+    @GetMapping("/byDocumento/{id}")
+    public ResponseEntity<Page<DetallePedidoEntity>> getByDocumento(@PathVariable("id") Long id, Pageable oPageable){
+        return ResponseEntity.ok(oDetallePedidoService.getByDocumentoId(id, oPageable));
+    }
+
+    @GetMapping("/byDocumento/{id}/byProducto/{idProducto}")
+    public ResponseEntity<DetallePedidoEntity> getByDocumento(@PathVariable("id") Long id, @PathVariable("idProducto") Long idProducto){
+        return ResponseEntity.ok(oDetallePedidoService.getByDocumentoIdAndProductId(id, idProducto));
     }
 
 }

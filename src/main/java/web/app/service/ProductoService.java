@@ -20,7 +20,7 @@ public class ProductoService {
     private SesionService oSesionService;
 
     public ProductoEntity get(Long id){
-        if(oSesionService.isAdmin()){
+        if(true){
             return productoRepository.findById(id)
         .orElseThrow(() -> new ResourceNotFoundException("Producto no encontrado"));
         } else {
@@ -32,7 +32,6 @@ public class ProductoService {
     public Page<ProductoEntity> getPageVisible(Pageable oPageable, String filter){
 
 
-        oSesionService.onlyAdmins();
         Page<ProductoEntity> page;
 
         if (filter == null || filter.isEmpty() || filter.trim().isEmpty()) {

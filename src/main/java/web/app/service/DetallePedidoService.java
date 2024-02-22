@@ -26,13 +26,13 @@ public class DetallePedidoService {
     }
 
     public DetallePedidoEntity create(DetallePedidoEntity oDetallePedidoEntity){
-        oSesionService.onlyAdmins();
+        oSesionService.onlyAdminsAndUsers();
         oDetallePedidoEntity.setId(null);
         return oDetallePedidoRepository.save(oDetallePedidoEntity);
     }
 
     public DetallePedidoEntity update(DetallePedidoEntity oDetallePedidoEntity){
-        oSesionService.onlyAdmins();
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
         return oDetallePedidoRepository.save(oDetallePedidoEntity);
     }
 
@@ -45,6 +45,17 @@ public class DetallePedidoService {
     public Page<DetallePedidoEntity> getPage(Pageable oPageable){
         oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
         return oDetallePedidoRepository.findAll(oPageable);
+    }
+
+    //CON SU PROPIA DATA
+    public Page<DetallePedidoEntity> getByDocumentoId(Long id, Pageable oPageable){
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
+        return oDetallePedidoRepository.findByDocumentoId(id, oPageable);
+    }
+
+    public DetallePedidoEntity getByDocumentoIdAndProductId(Long id, Long idProducto){
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
+        return oDetallePedidoRepository.findByDocumentoIdAndProductId(id, idProducto);
     }
 
 }

@@ -72,11 +72,13 @@ public class UsuarioService {
         oSesionService.onlyAdminsOrUsersWithItsOwnData(oUsuarioEntityFromDataBase.getId());
         if(oSesionService.isUser()){
             oUsuarioEntityToSet.setRole(oUsuarioEntityFromDataBase.getRole());
-            oUsuarioEntityToSet.setPassword("f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3");
+            oUsuarioEntityToSet.setPassword(oUsuarioEntityFromDataBase.getPassword());
             return oUsuarioRepository.save(oUsuarioEntityToSet).getId();
         } else if(oSesionService.isAdmin()){
-            oUsuarioEntityToSet.setPassword("f295e358ac82ac23ffe6ff6f5ac94e8a6d8a455604826c64e36b29e0aa2dd4b3");
+            oUsuarioEntityToSet.setRole(oUsuarioEntityFromDataBase.getRole());  
+            oUsuarioEntityToSet.setPassword(oUsuarioEntityFromDataBase.getPassword());
             return oUsuarioRepository.save(oUsuarioEntityToSet).getId();
+            
         } else {
             return oUsuarioEntityToSet.getId();
         }

@@ -25,7 +25,6 @@ public class DocumentoEntity {
     @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;
     
-    @NotNull
     @Column(name = "fecha_pedido")
     private LocalDate fecha_pedido;
 
@@ -42,6 +41,10 @@ public class DocumentoEntity {
     public DocumentoEntity(UsuarioEntity usuario, LocalDate fecha_pedido) {
         this.usuario = usuario;
         this.fecha_pedido = fecha_pedido;
+    }
+
+    public DocumentoEntity(UsuarioEntity usuario) {
+        this.usuario = usuario;
     }
 
     public Long getId() {

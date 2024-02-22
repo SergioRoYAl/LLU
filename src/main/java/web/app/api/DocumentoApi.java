@@ -50,5 +50,10 @@ public class DocumentoApi {
     public ResponseEntity<DocumentoEntity> update(@RequestBody DocumentoEntity oDocumentoEntity){
         return ResponseEntity.ok(oDocumentoService.update(oDocumentoEntity));
     }
+
+    @GetMapping("/pendiente/{id}")
+    public ResponseEntity<DocumentoEntity> isPendiente(@PathVariable("id") Long id){
+        return ResponseEntity.ok(oDocumentoService.isPendiente(id));
+    }
     
 }

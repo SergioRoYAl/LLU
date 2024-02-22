@@ -1,5 +1,7 @@
 package web.app.service;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -40,12 +42,12 @@ public class DocumentoService {
     }
 
     public DocumentoEntity update(DocumentoEntity oDocumentoEntity){
-        oSesionService.onlyAdmins();
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
         return oDocumentoRepository.save(oDocumentoEntity);
     }
 
     public Long delete(DocumentoEntity oDocumentoEntity){
-        oSesionService.onlyAdmins();
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
         oDocumentoRepository.delete(oDocumentoEntity);
         return oDocumentoEntity.getId();
     }
@@ -55,6 +57,11 @@ public class DocumentoService {
     public Page<DocumentoEntity> getPage(Pageable oPageable){
         oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
         return oDocumentoRepository.findAll(oPageable);
+    }
+
+    public DocumentoEntity isPendiente(Long id){
+        oSesionService.onlyAdminsOrUsersWithItsOwnData(oSesionService.getSessionUsuario().getId());
+        return oDocumentoRepository.isPendiente(id);
     }
     
 }

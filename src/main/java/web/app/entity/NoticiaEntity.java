@@ -30,11 +30,18 @@ public class NoticiaEntity {
     @NotNull
     @NotBlank
     @Size(min=3, max = 4192)
-    private String descripción;
+    private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuario;
+
+    @JoinColumn(name = "foto")
+    private String foto;
+
+    @NotNull
+    @JoinColumn(name = "visible")
+    private boolean visible;
 
     @OneToMany(mappedBy = "noticia", fetch = jakarta.persistence.FetchType.LAZY)
     private List<RespuestaEntity> respuestas;
@@ -43,22 +50,42 @@ public class NoticiaEntity {
         respuestas = new java.util.ArrayList<>();
     }
 
-    public NoticiaEntity(Long id, @NotNull @NotBlank @Size(min = 3, max = 256) String titulo,
-            @NotNull @NotBlank @Size(min = 3, max = 4192) String descripción, UsuarioEntity usuario) {
-        this.id = id;
+    public NoticiaEntity(@NotNull @NotBlank @Size(min = 3, max = 256) String titulo,
+            @NotNull @NotBlank @Size(min = 3, max = 4192) String descripcion, UsuarioEntity usuario, String foto,
+            @NotNull boolean visible) {
         this.titulo = titulo;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.usuario = usuario;
+        this.foto = foto;
+        this.visible = visible;
     }
+
+    
 
     public NoticiaEntity(@NotNull @NotBlank @Size(min = 3, max = 256) String titulo,
-            @NotNull @NotBlank @Size(min = 3, max = 4192) String descripción, UsuarioEntity usuario) {
+            @NotNull @NotBlank @Size(min = 3, max = 4192) String descripcion, UsuarioEntity usuario,
+            @NotNull boolean visible) {
         this.titulo = titulo;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.usuario = usuario;
+        this.visible = visible;
     }
 
+    public boolean isVisible() {
+        return visible;
+    }
 
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public Long getId() {
         return id;
@@ -76,12 +103,12 @@ public class NoticiaEntity {
         this.titulo = titulo;
     }
 
-    public String getDescripción() {
-        return descripción;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public UsuarioEntity getUsuario() {
