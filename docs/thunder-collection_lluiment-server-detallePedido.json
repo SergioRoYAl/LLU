@@ -1,0 +1,105 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "lluiment-server-detallePedido",
+    "dateExported": "2024-02-22T07:29:36.111Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4e867494-7e8a-4e4c-9be6-0c40bb6e669a",
+            "colId": "a6ebcaa3-3744-4643-962d-1831a22663bc",
+            "containerId": "",
+            "name": "DELETE DETALLE PEDIDO",
+            "url": "http://localhost:8383/detallePedido/2",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2024-01-30T08:15:29.920Z",
+            "modified": "2024-01-30T08:15:29.920Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI2NDc3MDI3Ni02ODA5LTRmZWEtYjhmNy1mMWZmYzllNjE3ZTYiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY2MDIzODEsImV4cCI6MTcwNjYwMzg4MSwibmFtZSI6Ilhla29zIn0.RCFzMgTnO_Ks_VweJh1qd3UISyuGl1Pz24esPscUMte3nN5CvcaPdvZmcKuwhd5OHbD6clJoceoyv1J5Q0Y9EQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d4bbca6a-9da1-41b7-a9ef-525cae9db0ca",
+            "colId": "a6ebcaa3-3744-4643-962d-1831a22663bc",
+            "containerId": "",
+            "name": "PUT DETALLE PEDIDO",
+            "url": "http://localhost:8383/detallePedido",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-01-30T08:15:31.136Z",
+            "modified": "2024-01-30T08:15:31.136Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"id\": 4,\n      \"documento\": {\n        \"id\": 3,\n        \"usuario\": {\n          \"id\": 1\n        },\n        \"fecha_pedido\": \"2024-12-12\"\n      },\n      \"producto\": {\n        \"id\": 5\n      },\n      \"cantidad\": 4,\n      \"precio\": 1800.0\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f01bec1d-740a-45d8-be1c-95d47d914559",
+            "colId": "a6ebcaa3-3744-4643-962d-1831a22663bc",
+            "containerId": "",
+            "name": "GET DETALLE PEDIDO",
+            "url": "http://localhost:8383/detallePedido",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-01-30T08:15:32.328Z",
+            "modified": "2024-01-30T08:15:32.328Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjYzlmYjVlOS1jNDMxLTQ3ZjktYTEzNy01NjA2MGQyZTMwNjAiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY2MDE4MDMsImV4cCI6MTcwNjYwMzMwMywibmFtZSI6Ilhla29zIn0.Wl48EXulTkXZNSTiiXTT3HdQ5lnrcrYWzyRSQvGayLtBB93gUCUjgyDtTO9HrLfttMpyqV98XNOkvFTNDwYCDg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e32686d2-d957-414b-9b11-817fa757bab0",
+            "colId": "a6ebcaa3-3744-4643-962d-1831a22663bc",
+            "containerId": "",
+            "name": "CREATE DETALLE PEDIDO",
+            "url": "http://localhost:8383/detallePedido",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-01-30T08:15:33.410Z",
+            "modified": "2024-02-11T19:26:17.509Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"documento\": {\n        \"id\": 3\n      },\n      \"producto\": {\n        \"id\": 5\n      },\n      \"cantidad\": 4,\n      \"precio\": 1800.0\n    }\n    \n    \n    ",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI0OTlkZmM4My00NDg1LTQxZjUtYjY2ZS0zZTM0ZGUzZTlhYjkiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDc2Nzk1NzAsImV4cCI6MTcwNzY4MTA3MCwibmFtZSI6Ilhla29zIn0.03-uPaQtU78ieL7BZqF0Mdxv4KgKBeZRhRupU6q-tQGGThstz1EMtDJBikQWv7TZGaFfhY-W4uHJsa9cYnIxtw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9fe24c50-01f6-4424-88e3-fbb23366e0cc",
+            "colId": "a6ebcaa3-3744-4643-962d-1831a22663bc",
+            "containerId": "",
+            "name": "GET DETALLE BY DOCUMENTO ID",
+            "url": "http://localhost:8383/detallePedido/byDocumento/68",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-02-12T10:27:05.368Z",
+            "modified": "2024-02-12T10:27:50.215Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIzYjU2ZjIxZS05NmI3LTQwYWEtOTU1Zi1iNGJkOGI1OWE1NjEiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDc3MzM2NDQsImV4cCI6MTcwNzczNTE0NCwibmFtZSI6Ilhla29zIn0.fHTexrpW4uCW0w0Rkemdj05yOOZ2PrGLYq29X3hEoHyObvgqzhMqLjYYMmOb6zyZCU_mZU-lAJX4H7TWPeSsFg"
+            },
+            "tests": []
+        }
+    ]
+}

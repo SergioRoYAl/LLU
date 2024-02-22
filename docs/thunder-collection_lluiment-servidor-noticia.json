@@ -1,0 +1,103 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "lluiment-servidor-noticia",
+    "dateExported": "2024-02-22T07:28:37.797Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4fcbf1c0-8273-4909-be2b-e59247dbf98c",
+            "colId": "d6f535f8-8c0d-4822-8d3a-d8c7f9885c08",
+            "containerId": "",
+            "name": "getPage",
+            "url": "http://localhost:8383/noticia?size=10&page=0&sort=titulo,asc",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-01T08:20:13.687Z",
+            "modified": "2024-02-01T11:59:44.447Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "size",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "0",
+                    "isPath": false
+                },
+                {
+                    "name": "sort",
+                    "value": "titulo,asc",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "be721d1c-b883-4bcc-b7d2-a66f5daa08c1",
+            "colId": "d6f535f8-8c0d-4822-8d3a-d8c7f9885c08",
+            "containerId": "",
+            "name": "create noticia",
+            "url": "http://localhost:8383/noticia",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-01T12:00:04.985Z",
+            "modified": "2024-02-01T12:01:06.015Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"titulo\": \"Pepino Mágico\",\n  \"descripcion\": \"El pepino es la secuencia secuoya\",\n  \"usuario\": {\n    \"id\": 18\n   }\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMTQyYzNmMy1kMjk5LTQ0YWYtYThkNi03ZjhjMmRmZTdjNTgiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY3ODg4NTgsImV4cCI6MTcwNjc5MDM1OCwibmFtZSI6Ilhla29zIn0.47ZLaxXF0Tz5oiaEZATQN7wQvxLIKBncSC35hUAJIIegSddRL3sO8vm3c7JR8Ia4jF9i1JJVYNxEgtDRyOgxPQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b226f085-427d-40d3-942d-2792e1797ad1",
+            "colId": "d6f535f8-8c0d-4822-8d3a-d8c7f9885c08",
+            "containerId": "",
+            "name": "update",
+            "url": "http://localhost:8383/noticia",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-02-01T13:08:39.071Z",
+            "modified": "2024-02-05T09:20:32.871Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n        \n        \"descripcion\":\"El pepino es la secuencia secuoya\",\n\"foto\":\"http://localhost:8383/media/bulmaweb.jpg\",\n\"id\":7,\n\"titulo\":\"Pepino Mágico\",\n\"usuario\":{\"id\": 18}\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIyNzc2MzJjYS00MjY3LTQ1Y2ItYjBlNS03MGUwMWYxM2JhOWQiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDcxMjQyNTUsImV4cCI6MTcwNzEyNTc1NSwibmFtZSI6Ilhla29zIn0.OCnSwREy5EPjqeN5-fIHe7Hhm3zGmosqZ3e33LOMOs1mI2Lrj6IH6xCHpDXA14ZQYY4SWAmQLjpg9Lib1JE-MA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7e964cd8-eef5-4a90-af15-fe9a852baad7",
+            "colId": "d6f535f8-8c0d-4822-8d3a-d8c7f9885c08",
+            "containerId": "",
+            "name": "get noticia concreta",
+            "url": "http://localhost:8383/noticia/7",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-02-05T11:23:20.520Z",
+            "modified": "2024-02-06T18:03:19.514Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3MmEwMmU0MC02MWY0LTRiMDEtOTRhMi1mNzQ1NGViZGJhYmQiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDcyNDI1NjIsImV4cCI6MTcwNzI0NDA2MiwibmFtZSI6Ilhla29zIn0.HFhyx28LK8VVRb8sms16UorOMVfZT5apLYYBJm9rFECDSHITjjM77OI6X6rtfA1xOidh7M_qnA5uQ_LywJojEA"
+            },
+            "tests": []
+        }
+    ]
+}

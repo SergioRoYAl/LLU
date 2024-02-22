@@ -1,0 +1,91 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "lluiment-server-user",
+    "dateExported": "2024-02-22T07:29:50.959Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "eed84832-a994-4284-88b4-7305b4e73f37",
+            "colId": "8b716e5f-1fe4-440a-bc97-f953dfa3846a",
+            "containerId": "",
+            "name": "CREATE USER",
+            "url": "http://localhost:8383/luz",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-12-13T16:25:35.512Z",
+            "modified": "2024-01-30T08:19:50.766Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\" : \"Pepinillo\",\n  \"apellidos\" : \"Romero Alarcón\",\n  \"fecha_nacimiento\" : \"1998-12-12\",\n  \"direccion\" : \"C/9 D'Octubre\",\n  \"username\" : \"lolilo\",\n  \"password\" : \"d50d3319bccca99d3093b689745b168cc79ecfd0e18e3e80be6d8c6ad1061407\",\n  \"role\" : true,\n  \"email\" : \"sergioromeroalarcon2b@gmail.com\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjOTE4OWJjZC1jZTE0LTRiMGQtYmY0My00OTc2MmRkMWFhNmMiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY2MDI2NDUsImV4cCI6MTcwNjYwNDE0NSwibmFtZSI6Ilhla29zIn0.GK6vm9w-Xh-SX1wasy1DWsf3XlrxuASf84HXV1ORrhg59Ed5ljp4KIfPAO3vEm2tbc3NJEcydtq8U9WfTO1HMg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d16c451c-89ba-440b-b5c1-fc45654cc3f8",
+            "colId": "8b716e5f-1fe4-440a-bc97-f953dfa3846a",
+            "containerId": "",
+            "name": "GET USER BY USERNAME",
+            "url": "http://localhost:8383/luz/de/Xekos",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-01-17T07:21:55.821Z",
+            "modified": "2024-01-30T08:17:41.049Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjOTE4OWJjZC1jZTE0LTRiMGQtYmY0My00OTc2MmRkMWFhNmMiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY2MDI2NDUsImV4cCI6MTcwNjYwNDE0NSwibmFtZSI6Ilhla29zIn0.GK6vm9w-Xh-SX1wasy1DWsf3XlrxuASf84HXV1ORrhg59Ed5ljp4KIfPAO3vEm2tbc3NJEcydtq8U9WfTO1HMg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d7336650-b12c-4be0-8ddd-7704e7fbb4af",
+            "colId": "8b716e5f-1fe4-440a-bc97-f953dfa3846a",
+            "containerId": "",
+            "name": "GET USER",
+            "url": "http://localhost:8383/luz/1",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-01-30T08:16:38.321Z",
+            "modified": "2024-01-30T08:17:30.179Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjOTE4OWJjZC1jZTE0LTRiMGQtYmY0My00OTc2MmRkMWFhNmMiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY2MDI2NDUsImV4cCI6MTcwNjYwNDE0NSwibmFtZSI6Ilhla29zIn0.GK6vm9w-Xh-SX1wasy1DWsf3XlrxuASf84HXV1ORrhg59Ed5ljp4KIfPAO3vEm2tbc3NJEcydtq8U9WfTO1HMg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4433c994-047e-4a5d-a93f-5b03d1eac2ee",
+            "colId": "8b716e5f-1fe4-440a-bc97-f953dfa3846a",
+            "containerId": "",
+            "name": "UPDATE USER",
+            "url": "http://localhost:8383/luz",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2024-01-30T08:18:39.468Z",
+            "modified": "2024-01-30T08:19:33.949Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1,\n  \"nombre\": \"Sergio\",\n  \"apellidos\": \"Romero Alarcón\",\n  \"fecha_nacimiento\": \"1998-12-12\",\n  \"direccion\": \"C/9 D'Octubre\",\n  \"username\": \"Xekos\",\n  \"password\": \"6901e6a15d3f209a482acc5e084e229efd70f392f0d1718ee2e2ff9a0691890f\",\n  \"role\": false,\n  \"email\": \"sergioromeroalarcon2b@gmail.com\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjOTE4OWJjZC1jZTE0LTRiMGQtYmY0My00OTc2MmRkMWFhNmMiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY2MDI2NDUsImV4cCI6MTcwNjYwNDE0NSwibmFtZSI6Ilhla29zIn0.GK6vm9w-Xh-SX1wasy1DWsf3XlrxuASf84HXV1ORrhg59Ed5ljp4KIfPAO3vEm2tbc3NJEcydtq8U9WfTO1HMg"
+            },
+            "tests": []
+        }
+    ]
+}

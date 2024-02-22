@@ -1,0 +1,91 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "lluiment-servidor-documento",
+    "dateExported": "2024-02-22T07:29:10.963Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a2bcd169-c9f8-4493-aa19-a4a749da70ce",
+            "colId": "a369a072-77ab-4c37-97d4-bf799addbca3",
+            "containerId": "",
+            "name": "GET PAGE DOCUMENTO",
+            "url": "http://localhost:8383/documento",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-30T08:16:26.522Z",
+            "modified": "2024-02-22T02:34:28.526Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxZjE1OWIyZi1mOGNhLTQzOGItOTJlZC0zZjFhOGY1MWVlNWYiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDg1NjkyNDgsImV4cCI6MTcwODU3MDc0OCwibmFtZSI6Ilhla29zIn0.horGICKvKm7tHody4CqMxk4UYyW-Gmv2wGnUpV1ctmK4ynruNurZql5GGpf7F4MJpXLBLbk6VL9LS5UYwcoB0w"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f761cdfa-30ec-408f-8f42-d2eed294d1bc",
+            "colId": "a369a072-77ab-4c37-97d4-bf799addbca3",
+            "containerId": "",
+            "name": "CREATE DOCUMENT",
+            "url": "http://localhost:8383/documento",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-30T08:16:27.644Z",
+            "modified": "2024-01-30T08:16:27.644Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"usuario\": {\n        \"id\": 1\n      },\n      \"fecha_pedido\": \"2024-12-12\"\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIzYzgzNDEyYi0yZTQ0LTRlNjItOGM1Zi03NDI4NTJkYTdjM2UiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDY2MDAyOTUsImV4cCI6MTcwNjYwMTc5NSwibmFtZSI6Ilhla29zIn0.fKR5nDocD7fmT9BjIDxiOXHl2vSTdvj1xcCL26YFFzo7xiXk_nWOBCjbt7-maHbvDyuPevehBaQpKrGkfd2_Rg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "72b2266c-772b-4972-b371-1e6e91f7173b",
+            "colId": "a369a072-77ab-4c37-97d4-bf799addbca3",
+            "containerId": "",
+            "name": "GET DOCUMENTO FECHA PEDIDO NULL",
+            "url": "http://localhost:8383/documento/pendiente/18",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-11T18:35:40.392Z",
+            "modified": "2024-02-11T18:41:38.658Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxNjYwMzU4My0xMzFjLTQ1MjYtYmUyYi1jMjUwNzg2YWM4MmUiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDc2NzY1OTIsImV4cCI6MTcwNzY3ODA5MiwibmFtZSI6Ilhla29zIn0.dN4pOA7AJdxYg9aeLkNBTOTlKrUucNJic9a3eWloSuqKcozhZkLEPdYeGiono9D33HK7Ut7qfKEBGfzya0xylw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9db89b93-69a8-44ac-99f7-e101588265be",
+            "colId": "a369a072-77ab-4c37-97d4-bf799addbca3",
+            "containerId": "",
+            "name": "UPDATE",
+            "url": "http://localhost:8383/documento",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-22T02:33:57.937Z",
+            "modified": "2024-02-22T02:39:23.623Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 69,\n  \"usuario\": {\n    \"id\": 22\n  },\n  \"fecha_pedido\": \"2024-01-01\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxZjE1OWIyZi1mOGNhLTQzOGItOTJlZC0zZjFhOGY1MWVlNWYiLCJpc3MiOiJQSE9TUEhPUlVNIERBVyBBVVNJQVMgTUFSQ0giLCJpYXQiOjE3MDg1NjkyNDgsImV4cCI6MTcwODU3MDc0OCwibmFtZSI6Ilhla29zIn0.horGICKvKm7tHody4CqMxk4UYyW-Gmv2wGnUpV1ctmK4ynruNurZql5GGpf7F4MJpXLBLbk6VL9LS5UYwcoB0w"
+            },
+            "tests": []
+        }
+    ]
+}

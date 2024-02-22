@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "lluiment-server-login",
+    "dateExported": "2024-02-22T07:30:02.045Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d17e1b2a-766b-4225-a014-b6103979b399",
+            "colId": "3106ef4a-4d11-4001-b824-053d27b4e195",
+            "containerId": "",
+            "name": "LOGIN",
+            "url": "http://localhost:8383/sesion",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-01-30T08:15:47.977Z",
+            "modified": "2024-01-30T08:15:47.977Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\":\"Xekos\",\n  \"password\" : \"6901e6a15d3f209a482acc5e084e229efd70f392f0d1718ee2e2ff9a0691890f\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
