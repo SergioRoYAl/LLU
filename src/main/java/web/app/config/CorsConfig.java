@@ -15,6 +15,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                     .allowedOrigins("http://localhost:8383")
+                    .allowedOrigins("https://lluiment.es")
                     .allowedMethods("GET", "POST", "PUT", "DELETE")
                     .allowedHeaders("*");
             }
