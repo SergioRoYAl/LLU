@@ -48,8 +48,8 @@ public class MediaControllerApi {
     
 
     @CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST}, maxAge = 3600)
-@GetMapping("{filename:.*}")
-public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+    @GetMapping("{filename:.*}")
+    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
     Resource file = storageService.loadAsResource(filename);
     String contentType = MediaType.APPLICATION_OCTET_STREAM_VALUE;
 
